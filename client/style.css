@@ -13,7 +13,20 @@ body {
     padding: 20px;
 }
 
-#traffic-issues-list {
+#traffic-issues-title, #news-title {
+    font-size: 2em;
+    display: inline-block;
+}
+
+.traffic-issues-icon, #news-icon {
+    width: 35px;
+    vertical-align: middle;
+}
+#news-icon {
+    vertical-align: bottom;
+}
+
+#traffic-issues-list, #news-list {
     list-style: none;
     padding: 0;
     font-size: 1em;
@@ -22,6 +35,8 @@ body {
 .traffic-issues-item-title {
     font-size: 1.5em;
 }
+
+
 
 #weather-icon, #weather-city-name, #weather-description  {
     text-align: center;

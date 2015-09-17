@@ -6,22 +6,37 @@ var openEstekaTraffic = (function() {
 
     TrafficController.prototype = {
         setTrafficIssues: function(issues) {
+            //this.issues = issues;
             this.htmlContent = '';
+            this.issuesToShow = 0;
 
             $.each(issues, this.setIssuesLoop.bind(this));
 
+            $('#traffic-issues-title').html(this.generateTrafficIssuesTitle());
             $('#traffic-issues-list').html(this.htmlContent);
 
-            console.log(issues);
+            $(document).webicons();
         },
         setIssuesLoop: function(index, issue) {
-            if (!issue.carretera || !issue.poblacion || !issue.causa || !issue.nivel) {
-                return;
-            }
             this.htmlContent += this.generateIssueHtml(issue);
         },
+        generateTrafficIssuesTitle: function() {
+            return '<webicon icon="material:directions-car" class="traffic-issues-icon"/>' +
+                                ' Incidencias de tráfico ' +
+                                '(' + this.issuesToShow + ')';
+        },
         generateIssueHtml: function(issue) {
-            var issueTitle = 'Incidencia en la ' +  issue.carretera + ' (' + issue.poblacion + ')';
+
+            if (!issue.carretera || !issue.causa || !issue.nivel) {
+                return '';
+            }
+            this.issuesToShow++;
+
+            var issueTitle = 'Incidencia en la ' +  issue.carretera;
+            if (issue.poblacion) {
+                issueTitle = issueTitle + ' (' + issue.poblacion + ')';
+            }
+
             var issueCause = 'Causa: ' + issue.causa;
             var issueLevel = 'Nivel: ' + issue.nivel;
 

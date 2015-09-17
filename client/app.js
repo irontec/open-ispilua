@@ -16,6 +16,7 @@ $(function() {
         onNews: function(data) {
             openEstekaWeather.setWeather(data.weather);
             openEstekaTraffic.setTrafficIssues(data.traffic.issues);
+            openEstekaNews.setNews(data.news);
         }
     };
 

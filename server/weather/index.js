@@ -7,7 +7,7 @@ var application;
 var weatherController = {
 
     getWeatherByCity: function(cityName) {
-        var cityName = cityName || application.locals.config.opendata.weather.defaultCityName;
+        var city = cityName || application.locals.config.opendata.weather.defaultCityName;
         return application.locals.api.getData('weather')
         .then(function(data) {
             var todayForecast = _.find(data.weatherForecast.forecasts[0].forecast, function(forecast) {
@@ -15,7 +15,7 @@ var weatherController = {
                 });
 
                 var resultForecast = _.find(todayForecast.cityForecastDataList[0].cityForecastData, function(cityForecast) {
-                    return cityForecast.$.cityName === cityName;
+                    return cityForecast.$.cityName === city;
                 });
 
                 var weather = {

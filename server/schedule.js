@@ -6,9 +6,10 @@ var using = require('bluebird').using;
 
 var weatherModule = require('./weather');
 var trafficModule = require('./traffic');
+var newsModule = require('./news');
 
 var application;
-var weather, traffic;
+var weather, traffic, news;
 
 
 var isWorking = false;
@@ -17,12 +18,14 @@ function getDataFromAPIS() {
     using(
       weather.getWeatherByCity(application.locals.config.geo.city),
       traffic.getTrafficByGeo(),
-      function(weather, traffic) {
+      news.getNews(),
+      function(weather, traffic, news) {
         var returnData = {
             weather: weather,
             traffic: {
                 issues: traffic
-            }
+            },
+            news: news
         };
         return returnData;
       }
@@ -54,6 +57,7 @@ module.exports = function(app) {
 
     weather = weatherModule(app);
     traffic = trafficModule(app);
+    news = newsModule(app);
 
     var schedule = later.parse.text(text);
 
