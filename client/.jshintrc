@@ -17,6 +17,9 @@
   "strict": true,
   "globals": {
     "$": false,
-    "io": false
+    "io": false,
+    "openEstekaWeather": false,
+    "openEstekaTraffic": false,
+    "openEstekaClock": false
   }
 }
