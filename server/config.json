@@ -1,0 +1,15 @@
+{
+    "api": {
+        "port": 9030
+    },
+    "opendata": {
+        "url": "http://opendata.euskadi.eus/contenidos/",
+        "traffic": {
+            "url": "http://www.trafikoa.net/servicios/IncidenciasTDT/IncidenciasTrafikoTDTGeo",
+            "maxDistance": "20"
+        },
+        "weather": {
+            "defaultCityName": "Bilbao"
+        }
+    }
+}
