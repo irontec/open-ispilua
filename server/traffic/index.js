@@ -1,9 +1,7 @@
-// API URL : http://www.trafikoa.net/servicios/IncidenciasTDT/IncidenciasTrafikoTDTGeo
-
 'use strict';
 
 var _ = require('underscore');
-var jeyoDistans = require( "jeyo-distans" );
+var jeyoDistans = require('jeyo-distans');
 
 var application;
 
