@@ -16,9 +16,13 @@ var isWorking = false;
 
 function getDataFromAPIS() {
     using(
+
       weather.getWeatherByCity(application.locals.config.geo.city),
+
       traffic.getTrafficByGeo(),
+
       news.getNews(),
+
       function(weather, traffic, news) {
         var returnData = {
             weather: weather,

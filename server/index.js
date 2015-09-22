@@ -54,11 +54,12 @@ function startServer() {
 
 
     server.listenAsync(config.api.port)
-    .then(function(data) {
+    .then(function() {
         console.log('SUCCESS', config);
     })
     .catch(function(err) {
         console.log('ERROR');
+        console.log(err);
     });
 
 }

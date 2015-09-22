@@ -1,3 +1,5 @@
+'use strict';
+
 function Weather(resultForecast) {
 
     this.city = {

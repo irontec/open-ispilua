@@ -9,8 +9,12 @@
     "restart": "pm2 restart open-esteka-server",
     "stop": "pm2 stop open-esteka-server",
     "kill": "pm2 delete open-esteka-server",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd ../client && bower install"
+    "test": "npm run lint",
+    "lint": "npm run lint:js",
+    "lint:js": "jshint --reporter node_modules/jshint-stylish-ex/stylish.js . **.js",
+    "preinstall": "npm run link:hooks",
+    "postinstall": "cd ../client && bower install",
+    "link:hooks": "cp ../hooks/pre-commit.sh ../.git/hooks/pre-commit || exit 0"
   },
   "author": "Irontec SL",
   "license": "ISC",
@@ -24,5 +28,11 @@
     "socket.io": "^1.3.6",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.12"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "jshint-stylish-ex": "^0.2.0",
+    "pm2": "^0.14.7"
   }
+
 }
