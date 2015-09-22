@@ -19,6 +19,7 @@
     "$": false,
     "io": false,
     "_": false,
+    "moment": false,
     "openIspiluaWeather": false,
     "openIspiluaSeaWeather": false,
     "openIspiluaTraffic": false,
