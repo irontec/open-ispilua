@@ -28,17 +28,17 @@
                         "hideTime": "0"
                     },
                     {
-                        "name": "openIspiluaSeaWeather",
-                        "position": "left",
-                        "displayTime": "8",
-                        "displayOffset": "10",
-                        "hideTime": "10"
-                    },
-                    {
                         "name": "openIspiluaTraffic",
                         "position": "left",
                         "displayTime": "8",
                         "displayOffset": "0",
+                        "hideTime": "10"
+                    },
+                    {
+                        "name": "openIspiluaNews",
+                        "position": "left",
+                        "displayTime": "8",
+                        "displayOffset": "10",
                         "hideTime": "10"
                     }
                 ]
@@ -55,8 +55,11 @@
                         "position": "right"
                     },
                     {
-                        "name": "openIspiluaNews",
-                        "position": "right"
+                        "name": "openIspiluaSeaWeather",
+                        "position": "right",
+                        "displayTime": "8",
+                        "displayOffset": "10",
+                        "hideTime": "10"
                     }
                 ]
             }

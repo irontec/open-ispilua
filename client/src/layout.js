@@ -65,7 +65,6 @@ var openIspiluaLayout = (function() {
 
             var self = this;
 
-            console.log('start module interval', module);
             this.timeouts.push(
                 setTimeout(function() {
                     self.showModule(module);
@@ -73,7 +72,6 @@ var openIspiluaLayout = (function() {
             );
         },
         showModule: function(module) {
-            console.log('show module', $('#' + module.name));
             var self = this;
 
             $('#' + module.name).fadeIn();
@@ -87,7 +85,6 @@ var openIspiluaLayout = (function() {
 
         },
         hideModule: function(module) {
-            console.log('hide module', $('#' + module.name));
             var self = this;
 
             $('#' + module.name).fadeOut();
