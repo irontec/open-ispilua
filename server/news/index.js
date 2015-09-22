@@ -1,10 +1,7 @@
 'use strict';
 
 var application;
-var parser = require('parse-rss');
-var Promise = require('bluebird');
 var _ = require('underscore');
-var parserAsync = Promise.promisify(parser);
 
 
 var newsController = {
