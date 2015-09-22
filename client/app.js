@@ -24,11 +24,15 @@ $(function() {
         },
         onNews: function(data) {
             openIspiluaLayout.setLayout(data.layout);
-            openIspiluaClock.setClockDOM();
-            openIspiluaWeather.setWeatherDOM(data.weather);
+            openIspiluaWeather.setWeather(data.weather);
             //openIspiluaWeather.setWeather(data.weather);
-            openIspiluaTraffic.setTrafficIssuesDOM(data.traffic.issues);
-            openIspiluaNews.setNewsDOM(data.news);
+            openIspiluaTraffic.setTrafficIssues(data.traffic.issues);
+            openIspiluaNews.setNews(data.news);
+
+            if (openIspiluaLayout.toRedraw) {
+                openIspiluaClock.setClock();
+                openIspiluaLayout.toRedraw = false;
+            }
         }
     };
 

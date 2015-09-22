@@ -7,7 +7,7 @@ var openIspiluaClock = (function() {
     }
 
     ClockController.prototype = {
-        setClockDOM: function() {
+        setClock: function() {
             var clockDOM = $('#openIspiluaClock');
             clockDOM.html('<div id="clock-content"></div>');
             this.startTime();

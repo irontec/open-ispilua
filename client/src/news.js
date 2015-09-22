@@ -2,10 +2,19 @@ var openIspiluaNews = (function() {
 
     'use strict';
 
-    function NewsController() {}
+    function NewsController() {
+        this.newsArr = null;
+    }
 
     NewsController.prototype = {
-        setNewsDOM: function(newsArr) {
+        setNews: function(newsArr) {
+            if ( !_.isEqual(this.newsArr, newsArr) ) {
+                this.newsArr = newsArr;
+                this.redraw();
+            }
+
+        },
+        redraw: function() {
             var newsDOM = $('#openIspiluaNews');
 
             var newsDOMHeader = '<div class="news-header-layout">' +
@@ -17,7 +26,7 @@ var openIspiluaNews = (function() {
                                 '</div>';
 
             var newsList = '';
-            $.each(newsArr, function(index, news) {
+            $.each(this.newsArr, function(index, news) {
                 newsList += this.generateNewsHtml(news);
             }.bind(this));
 

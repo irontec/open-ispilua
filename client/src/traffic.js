@@ -2,15 +2,23 @@ var openIspiluaTraffic = (function() {
 
     'use strict';
 
-    function TrafficController() {}
+    function TrafficController() {
+        this.issues = null;
+    }
 
     TrafficController.prototype = {
-        setTrafficIssuesDOM: function(issues) {
+        setTrafficIssues: function(issues) {
+            if ( !_.isEqual(this.issues, issues) ) {
+                this.issues = issues;
+                this.redraw();
+            }
+        },
+        redraw: function() {
             this.issuesToShow = 0;
             var issuesDOM = $('#openIspiluaTraffic');
 
             var issuesListContent = '';
-            $.each(issues, function(index, issue) {
+            $.each(this.issues, function(index, issue) {
                 issuesListContent += this.generateIssueHtml(issue);
             }.bind(this));
 

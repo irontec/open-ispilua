@@ -4,12 +4,14 @@ var openIspiluaLayout = (function() {
 
     function LayoutManager() {
         this.layout = null;
+        this.toRedraw = false;
     }
 
     LayoutManager.prototype = {
         setLayout: function(layout) {
             if ( !_.isEqual(this.layout, layout) ) {
                 this.layout = layout;
+                this.toRedraw = true;
                 this.redraw();
             }
         },
