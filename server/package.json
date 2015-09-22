@@ -1,7 +1,7 @@
 {
   "name": "open-esteka-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Socket IO Server which manages open-ispilua mirror data",
   "main": "index.js",
   "scripts": {
     "start": "DEBUG=express:* pm2 start index.js --name=open-esteka-server --watch",
@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd ../client && bower install"
   },
-  "author": "",
+  "author": "Irontec SL",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^2.10.0",
