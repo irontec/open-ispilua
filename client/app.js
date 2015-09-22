@@ -24,9 +24,12 @@ $(function() {
         },
         onNews: function(data) {
             openIspiluaLayout.setLayout(data.layout);
+
             openIspiluaWeather.setWeather(data.weather);
-            //openIspiluaWeather.setWeather(data.weather);
+            openIspiluaSeaWeather.setWeather(data.seaWeather);
+
             openIspiluaTraffic.setTrafficIssues(data.traffic.issues);
+
             openIspiluaNews.setNews(data.news);
 
             if (openIspiluaLayout.toRedraw) {

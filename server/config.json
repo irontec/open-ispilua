@@ -16,13 +16,17 @@
             "limit": 3
         }
     },
-    "layout": {
-        "section-1": [
+    "layout": [
+        [
             {
                 "colSize": "1_of_3",
                 "modules": [
                     {
                         "name": "openIspiluaClock",
+                        "position": "left"
+                    },
+                    {
+                        "name": "openIspiluaSeaWeather",
                         "position": "left"
                     },
                     {
@@ -49,5 +53,5 @@
                 ]
             }
         ]
-    }
+    ]
 }

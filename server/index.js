@@ -27,7 +27,7 @@ getGeo()
     startServer();
 })
 .catch(function(e) {
-    console.log(e);
+    console.log('Error', e);
     throw e;
 });
 

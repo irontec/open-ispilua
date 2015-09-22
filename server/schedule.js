@@ -5,11 +5,12 @@ var _ = require('underscore');
 var using = require('bluebird').using;
 
 var weatherModule = require('./weather');
+var seaWeatherModule = require('./seaweather');
 var trafficModule = require('./traffic');
 var newsModule = require('./news');
 
 var application;
-var weather, traffic, news;
+var weather, seaweather, traffic, news;
 
 
 var isWorking = false;
@@ -19,16 +20,19 @@ function getDataFromAPIS() {
       weather.getWeatherByCity(application.locals.config.geo.city),
       traffic.getTrafficByGeo(),
       news.getNews(),
+      seaweather.getWeather(),
 
       createReturnData
+
     ).then(function(data) {
         sendDataToClients(data);
     });
 }
 
-function createReturnData(weather, traffic, news) {
+function createReturnData(weather, traffic, news, seaweather) {
     return {
         weather: weather,
+        seaWeather: seaweather,
         traffic: {
             issues: traffic
         },
@@ -51,6 +55,7 @@ module.exports = function(app) {
     weather = weatherModule(app);
     traffic = trafficModule(app);
     news = newsModule(app);
+    seaweather = seaWeatherModule(app);
 
     var schedule = later.parse.text(text);
 

@@ -18,24 +18,28 @@ body {
 }
 
 
-.clock-layout, .weather-layout, .traffic-layout, .news-layout,
 .openIspiluaClock-layout,
 .openIspiluaWeather-layout,
+.openIspiluaSeaWeather-layout,
 .openIspiluaTraffic-layout,
 .openIspiluaNews-layout  {
     padding: 20px;
 }
 
-#traffic-issues-title, #news-title {
+#traffic-issues-title, #news-title, .sea-weather-title {
     font-size: 2em;
     display: inline-block;
 }
 
-.traffic-issues-icon, #news-icon {
+#sea-weather-temperature {
+    font-size: 2em;
+}
+
+.traffic-issues-icon, #news-icon, #sea-weather-icon {
     width: 35px;
     vertical-align: middle;
 }
-#news-icon {
+#news-icon #sea-weather-icon{
     vertical-align: bottom;
 }
 
