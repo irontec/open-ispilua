@@ -9,7 +9,7 @@
 ### Setting up
 Clone this repo
 ```bash
-git clone https://git.irontec.com/internet/open-esteka.git open-esteka && cd open-esteka/server
+git clone https://git.irontec.com/internet/open-ispilua.git open-ispilua && cd open-ispilua/server
 npm install
 ```
 
