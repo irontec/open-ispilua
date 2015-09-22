@@ -18,9 +18,11 @@
   "globals": {
     "$": false,
     "io": false,
+    "_": false,
     "openIspiluaWeather": false,
     "openIspiluaTraffic": false,
     "openIspiluaClock": false,
-    "openIspiluaNews": false
+    "openIspiluaNews": false,
+    "openIspiluaLayout": false
   }
 }

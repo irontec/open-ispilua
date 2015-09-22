@@ -1,14 +1,16 @@
 'use strict';
 
+var promisesManager = require('bluebird');
+
 var APIManager = require('./helpers/api');
 var request = require('request');
-require('bluebird').promisifyAll(request);
+promisesManager.promisifyAll(request);
 
 var config = require('./config');
 
 var express = require('express');
 var app = express();
-require('bluebird').promisifyAll(app);
+promisesManager.promisifyAll(app);
 
 
 var config = require('./config');
@@ -17,7 +19,7 @@ var apiManager = new APIManager(config.opendata.url);
 
 
 var server = require('http').Server(app);
-require('bluebird').promisifyAll(server);
+promisesManager.promisifyAll(server);
 var io = require('socket.io')(server);
 
 getGeo()

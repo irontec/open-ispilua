@@ -5,21 +5,32 @@ var openIspiluaNews = (function() {
     function NewsController() {}
 
     NewsController.prototype = {
-        setNews: function(news) {
-            // Set values
-            this.htmlContent = '';
-            $.each(news, this.setNewsLoop.bind(this));
-            $('#news-title').text('Noticias de última hora');
-            $('#news-icon').attr('data-webicon', 'material:subject');
-            $('#news-list').html(this.htmlContent);
-            // Reload icons
-            $(document).webicons();
-        },
-        setNewsLoop: function(index, news) {
-            this.htmlContent += this.generateNewsHtml(news);
+        setNewsDOM: function(newsArr) {
+            var newsDOM = $('#openIspiluaNews');
+
+            var newsDOMHeader = '<div class="news-header-layout">' +
+                                    '<div id="news-icon" data-webicon="material:subject">' +
+                                    '</div>' +
+                                    '<div id="news-title">' +
+                                        'Noticias de última hora' +
+                                    '</div>' +
+                                '</div>';
+
+            var newsList = '';
+            $.each(newsArr, function(index, news) {
+                newsList += this.generateNewsHtml(news);
+            }.bind(this));
+
+            var newsDOMContent = '<div class="news-content-layout">' +
+                                    '<ul id="news-list">' +
+                                        newsList +
+                                    '</ul>' +
+                                 '</div>';
+
+             newsDOM.html(newsDOMHeader + newsDOMContent);
+             $(document).webicons();
         },
         generateNewsHtml: function(news) {
-            console.log(news);
             var htmlItem = '<li class="traffic-issues-item">' +
                                 '<p class="traffic-issues-item-title">' +
                                     news.title +

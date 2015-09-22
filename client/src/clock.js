@@ -2,10 +2,22 @@ var openIspiluaClock = (function() {
 
     'use strict';
 
-    function ClockController() {}
+    function ClockController() {
+        this.started = false;
+    }
 
     ClockController.prototype = {
+        setClockDOM: function() {
+            var clockDOM = $('#openIspiluaClock');
+            clockDOM.html('<div id="clock-content"></div>');
+            this.startTime();
+        },
         startTime: function() {
+            if (!this.started) {
+                this.updateTime();
+            }
+        },
+        updateTime: function() {
             var today=new Date();
             var h=today.getHours();
             var m=today.getMinutes();
@@ -16,7 +28,7 @@ var openIspiluaClock = (function() {
 
             $('#clock-content').html(h+':'+m+':'+s);
 
-            setTimeout(this.startTime.bind(this),500);
+            setTimeout(this.updateTime.bind(this),500);
         },
         checkTime: function(i) {
             if (i<10) {

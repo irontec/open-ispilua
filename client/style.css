@@ -9,12 +9,21 @@ body {
     font-family: Noto;
 }
 
-.clock-layout, .weather-layout, .traffic-layout, .news-layout {
-    padding: 20px;
-}
-
 .right-layout {
     text-align: right;
+}
+
+.left-layout {
+    text-align: left;
+}
+
+
+.clock-layout, .weather-layout, .traffic-layout, .news-layout,
+.openIspiluaClock-layout,
+.openIspiluaWeather-layout,
+.openIspiluaTraffic-layout,
+.openIspiluaNews-layout  {
+    padding: 20px;
 }
 
 #traffic-issues-title, #news-title {

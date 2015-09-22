@@ -23,22 +23,28 @@ var openIspiluaWeather = (function() {
     function WeatherController() {}
 
     WeatherController.prototype = {
-        setWeather: function(weather) {
-            // Set values
-            this.setWeatherIcon(weatherIconsMap[weather.icon]);
-            this.setWeatherTitle(weather.city.name, weather.temp.mid);
-            this.setWeatherDescription(weather.descriptions.es);
-            // Reload icons
+        setWeatherDOM: function(weather) {
+            var weatherDOM = $('#openIspiluaWeather');
+
+            var weatherHeader = '<div class="weather-header-layout">' +
+                                    '<div id="weather-city-name">' +
+                                        weather.temp.mid + 'º en ' + weather.city.name +
+                                    '</div>' +
+                                    '<div id="weather-icon" ' +
+                                        'data-webicon="meteocons:' +
+                                            weatherIconsMap[weather.icon] +
+                                        '">' +
+                                    '</div>' +
+                                '</div>';
+            var weatherContent = '<div class="weather-content-layout">' +
+                                    '<div id="weather-description">' +
+                                        weather.descriptions.es +
+                                    '</div>' +
+                                 '</div>';
+
+            weatherDOM.html(weatherHeader + weatherContent);
+
             $(document).webicons();
-        },
-        setWeatherIcon: function(weatherIcon) {
-            $('#weather-icon').attr('data-webicon', 'meteocons:' + weatherIcon);
-        },
-        setWeatherTitle: function(cityName, temp) {
-            $('#weather-city-name').text(temp + 'º en ' + cityName);
-        },
-        setWeatherDescription: function(description) {
-            $('#weather-description').text(description);
         }
     };
 

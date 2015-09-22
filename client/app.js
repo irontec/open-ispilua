@@ -15,7 +15,7 @@ $(function() {
             this.onNews.bind(this)
         );
 
-        openIspiluaClock.startTime();
+        //openIspiluaClock.startTime();
     }
 
     OpenIspiluaApplication.prototype = {
@@ -23,9 +23,12 @@ $(function() {
             console.log('Connected');
         },
         onNews: function(data) {
-            openIspiluaWeather.setWeather(data.weather);
-            openIspiluaTraffic.setTrafficIssues(data.traffic.issues);
-            openIspiluaNews.setNews(data.news);
+            openIspiluaLayout.setLayout(data.layout);
+            openIspiluaClock.setClockDOM();
+            openIspiluaWeather.setWeatherDOM(data.weather);
+            //openIspiluaWeather.setWeather(data.weather);
+            openIspiluaTraffic.setTrafficIssuesDOM(data.traffic.issues);
+            openIspiluaNews.setNewsDOM(data.news);
         }
     };
 

@@ -5,25 +5,26 @@ var openIspiluaTraffic = (function() {
     function TrafficController() {}
 
     TrafficController.prototype = {
-        setTrafficIssues: function(issues) {
-            //this.issues = issues;
-            this.htmlContent = '';
+        setTrafficIssuesDOM: function(issues) {
             this.issuesToShow = 0;
+            var issuesDOM = $('#openIspiluaTraffic');
 
-            $.each(issues, this.setIssuesLoop.bind(this));
+            var issuesListContent = '';
+            $.each(issues, function(index, issue) {
+                issuesListContent += this.generateIssueHtml(issue);
+            }.bind(this));
 
-            $('#traffic-issues-title').html(this.generateTrafficIssuesTitle());
-            $('#traffic-issues-list').html(this.htmlContent);
+            var issuesDOMHeader = '<div id ="traffic-issues-title">' +
+                                    '<webicon icon="material:directions-car" class="traffic-issues-icon"/>' +
+                                    ' Incidencias de tráfico ' +
+                                    '(' + this.issuesToShow + ')' +
+                                  '</div>';
 
-            $(document).webicons();
-        },
-        setIssuesLoop: function(index, issue) {
-            this.htmlContent += this.generateIssueHtml(issue);
-        },
-        generateTrafficIssuesTitle: function() {
-            return '<webicon icon="material:directions-car" class="traffic-issues-icon"/>' +
-                                ' Incidencias de tráfico ' +
-                                '(' + this.issuesToShow + ')';
+            var issuesDOMContent = '<ul id="traffic-issues-list">' +
+                                        issuesListContent +
+                                    '</ul>';
+
+            issuesDOM.html(issuesDOMHeader + issuesDOMContent);
         },
         generateIssueHtml: function(issue) {
 

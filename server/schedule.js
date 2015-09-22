@@ -16,36 +16,25 @@ var isWorking = false;
 
 function getDataFromAPIS() {
     using(
-
       weather.getWeatherByCity(application.locals.config.geo.city),
-
       traffic.getTrafficByGeo(),
-
       news.getNews(),
 
-      function(weather, traffic, news) {
-        var returnData = {
-            weather: weather,
-            traffic: {
-                issues: traffic
-            },
-            news: news
-        };
-        return returnData;
-      }
+      createReturnData
     ).then(function(data) {
         sendDataToClients(data);
     });
+}
 
-    /*
-    return weather.getWeatherByCity(application.locals.config.geo.city)
-    .then(function(data) {
-        console.log(data);
-    })
-    .catch(function(err) {
-        throw err;
-    });
-    */
+function createReturnData(weather, traffic, news) {
+    return {
+        weather: weather,
+        traffic: {
+            issues: traffic
+        },
+        news: news,
+        layout: application.locals.config.layout
+    };
 }
 
 function sendDataToClients(data) {

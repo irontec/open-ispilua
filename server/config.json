@@ -15,5 +15,39 @@
             "url": "http://www.euskadi.net/r01hSearchResultWar/r01hPresentationRSS.jsp?r01kLang=es&r01kQry=tC:euskadi;tT:nota_prensa,noticia;m:documentLanguage.EQ.es;p:Inter_portal,Inter;pp:r01NavBarBlockSize.10,r01PageSize.10",
             "limit": 3
         }
+    },
+    "layout": {
+        "section-1": [
+            {
+                "colSize": "1_of_3",
+                "modules": [
+                    {
+                        "name": "openIspiluaClock",
+                        "position": "left"
+                    },
+                    {
+                        "name": "openIspiluaTraffic",
+                        "position": "left"
+                    }
+                ]
+            },
+            {
+                "colSize": "1_of_3",
+                "moduleNames": []
+            },
+            {
+                "colSize": "1_of_3",
+                "modules": [
+                    {
+                        "name": "openIspiluaWeather",
+                        "position": "right"
+                    },
+                    {
+                        "name": "openIspiluaNews",
+                        "position": "right"
+                    }
+                ]
+            }
+        ]
     }
 }
