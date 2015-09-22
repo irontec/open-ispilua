@@ -39,7 +39,7 @@ body {
     width: 35px;
     vertical-align: middle;
 }
-#news-icon #sea-weather-icon{
+#news-icon, #sea-weather-icon{
     vertical-align: bottom;
 }
 
