@@ -24,23 +24,22 @@
                     {
                         "name": "openIspiluaClock",
                         "position": "left",
-                        "displayTime": "20",
                         "displayOffset": "0",
-                        "hideTime": "20"
+                        "hideTime": "0"
                     },
                     {
                         "name": "openIspiluaSeaWeather",
                         "position": "left",
-                        "displayTime": "20",
-                        "displayOffset": "20",
-                        "hideTime": "20"
+                        "displayTime": "8",
+                        "displayOffset": "10",
+                        "hideTime": "10"
                     },
                     {
                         "name": "openIspiluaTraffic",
                         "position": "left",
-                        "displayTime": "20",
+                        "displayTime": "8",
                         "displayOffset": "0",
-                        "hideTime": "20"
+                        "hideTime": "10"
                     }
                 ]
             },

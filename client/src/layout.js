@@ -61,7 +61,6 @@ var openIspiluaLayout = (function() {
         startModuleInterval: function(moduleData) {
             var module = _.extend({}, moduleData);
             module.displayOffset = module.displayOffset || 0;
-            module.displayTime = module.displayTime || 0;
             module.hideTime = module.hideTime || 0;
 
             var self = this;
@@ -78,7 +77,6 @@ var openIspiluaLayout = (function() {
             var self = this;
 
             $('#' + module.name).fadeIn();
-            console.log(module.displayTime);
             if (module.displayTime) {
                 this.timeouts.push(
                     setTimeout(function() {
