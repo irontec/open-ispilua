@@ -20,6 +20,7 @@
     "io": false,
     "_": false,
     "openIspiluaWeather": false,
+    "openIspiluaSeaWeather": false,
     "openIspiluaTraffic": false,
     "openIspiluaClock": false,
     "openIspiluaNews": false,
