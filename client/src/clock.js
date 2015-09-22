@@ -1,4 +1,4 @@
-var openEstekaClock = (function() {
+var openIspiluaClock = (function() {
 
     'use strict';
 

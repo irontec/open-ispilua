@@ -18,9 +18,9 @@
   "globals": {
     "$": false,
     "io": false,
-    "openEstekaWeather": false,
-    "openEstekaTraffic": false,
-    "openEstekaClock": false,
-    "openEstekaNews": false
+    "openIspiluaWeather": false,
+    "openIspiluaTraffic": false,
+    "openIspiluaClock": false,
+    "openIspiluaNews": false
   }
 }

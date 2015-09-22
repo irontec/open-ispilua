@@ -1,4 +1,4 @@
-var openEstekaTraffic = (function() {
+var openIspiluaTraffic = (function() {
 
     'use strict';
 

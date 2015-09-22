@@ -1,4 +1,4 @@
-var openEstekaWeather = (function() {
+var openIspiluaWeather = (function() {
 
     'use strict';
 

@@ -1,4 +1,4 @@
-var openEstekaNews = (function() {
+var openIspiluaNews = (function() {
 
     'use strict';
 
