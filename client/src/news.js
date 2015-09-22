@@ -47,7 +47,7 @@ var openIspiluaNews = (function() {
                                     news.title +
                                 '</p>' +
                                 '<p class="traffic-issues-item-cause">' +
-                                    moment(news.date).locale('es').fromNow() +
+                                    moment(new Date(news.date)).locale('es').fromNow() +
                                 '</p>' +
                                 '<p class="traffic-issues-item-level">' +
                                     news.description +
