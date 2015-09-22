@@ -1,3 +1,5 @@
+/*jshint -W079 */
+/*jshint -W098 */
 var openIspiluaClock = (function() {
 
     'use strict';
