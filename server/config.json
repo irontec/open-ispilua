@@ -23,15 +23,24 @@
                 "modules": [
                     {
                         "name": "openIspiluaClock",
-                        "position": "left"
+                        "position": "left",
+                        "displayTime": "20",
+                        "displayOffset": "0",
+                        "hideTime": "20"
                     },
                     {
                         "name": "openIspiluaSeaWeather",
-                        "position": "left"
+                        "position": "left",
+                        "displayTime": "20",
+                        "displayOffset": "20",
+                        "hideTime": "20"
                     },
                     {
                         "name": "openIspiluaTraffic",
-                        "position": "left"
+                        "position": "left",
+                        "displayTime": "20",
+                        "displayOffset": "0",
+                        "hideTime": "20"
                     }
                 ]
             },

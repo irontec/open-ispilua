@@ -26,6 +26,7 @@ $(function() {
             openIspiluaLayout.setLayout(data.layout);
 
             openIspiluaWeather.setWeather(data.weather);
+
             openIspiluaSeaWeather.setWeather(data.seaWeather);
 
             openIspiluaTraffic.setTrafficIssues(data.traffic.issues);
