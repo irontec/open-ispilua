@@ -9,8 +9,12 @@ body {
     font-family: Noto;
 }
 
-.clock-layout, .weather-layout, .traffic-layout {
+.clock-layout, .weather-layout, .traffic-layout, .news-layout {
     padding: 20px;
+}
+
+.right-layout {
+    text-align: right;
 }
 
 #traffic-issues-title, #news-title {
@@ -39,7 +43,7 @@ body {
 
 
 #weather-icon, #weather-city-name, #weather-description  {
-    text-align: center;
+    text-align: right;
     display: block;
 }
 
@@ -48,13 +52,12 @@ body {
 }
 
 #weather-icon {
-    width: 50%;
-    margin: 0 auto;
+    width: 200px;
+    margin: 0 0 0 auto;
 }
 
 #weather-description {
     font-size: 1.5em;
-    padding: 20px;
 }
 
 
