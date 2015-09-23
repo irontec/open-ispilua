@@ -4,18 +4,20 @@ var later = require('later');
 var _ = require('underscore');
 var using = require('bluebird').using;
 
-var weatherModule = require('./weather');
-var seaWeatherModule = require('./seaweather');
-var trafficModule = require('./traffic');
-var newsModule = require('./news');
+var weatherModule = require('./weather'),
+    seaWeatherModule = require('./seaweather'),
+    trafficModule = require('./traffic'),
+    newsModule = require('./news'),
+    eventsModule = require('./events');
 
 var application;
-var weather, seaweather, traffic, news;
+var weather, seaweather, traffic, news, events;
 
 
 var isWorking = false;
 
 function getDataFromAPIS() {
+    //events.getEvents();
     using(
       weather.getWeatherByCity(application.locals.config.geo.city),
       traffic.getTrafficByGeo(),
@@ -49,13 +51,14 @@ function sendDataToClients(data) {
 }
 
 module.exports = function(app) {
-    var text = 'every 5 seconds';
+    var text = app.locals.config.api.refreshInterval;
     application = app;
 
     weather = weatherModule(app);
     traffic = trafficModule(app);
     news = newsModule(app);
     seaweather = seaWeatherModule(app);
+    events = eventsModule(app);
 
     var schedule = later.parse.text(text);
 

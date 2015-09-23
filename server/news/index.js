@@ -1,46 +1,39 @@
 'use strict';
 
-var application;
-var _ = require('underscore');
+var _ = require('underscore'),
+    NewsModel = require('./model');
 
+var application, config;
 
 var newsController = {
     getNews: function() {
-        var config = application.locals.config.opendata.news;
+
         return application.locals.api.getData(
             config.url,
             true
         )
-        .then(function(data) {
-            var newsArr = data.rss.channel[0].item;
-            var filteredNews = [];
+        .then(this._filterByLimit);
+    },
+    _filterByLimit: function(data) {
+        var newsArr = data.rss.channel[0].item,
+            filteredNews = [];
 
-            _.each(newsArr, function(news) {
-                if (filteredNews.length >= config.limit) {
-                    return;
-                }
+        _.each(newsArr, function(news) {
+            if (filteredNews.length >= config.limit) {
+                return;
+            }
 
-                var categories = [];
+            var newsModel = new NewsModel(news);
 
-                _.each(news.category, function(category) {
-                    categories.push(category._);
-                });
-                var newsModel = {
-                    title: news.title[0],
-                    date: news.pubDate[0],
-                    categories: categories,
-                    description: news.description[0],
-                    author: news['dc:creator'][0]
-                };
-
-                filteredNews.push(newsModel);
-            });
-            return filteredNews;
+            filteredNews.push(newsModel);
         });
+
+        return filteredNews;
     }
 };
 
 module.exports = function(app) {
     application = app;
+    config = application.locals.config.opendata.news;
     return newsController;
 };
