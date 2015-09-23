@@ -27,8 +27,8 @@ var openIspiluaWeather = (function() {
     }
 
     WeatherController.prototype = {
-        setWeather: function(weather) {
-            if ( !_.isEqual(this.weather, weather) ) {
+        setWeather: function(weather, force) {
+            if ( !_.isEqual(this.weather, weather) || force) {
                 this.weather = weather;
                 this.redraw();
             }

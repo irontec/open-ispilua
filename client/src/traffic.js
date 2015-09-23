@@ -9,8 +9,8 @@ var openIspiluaTraffic = (function() {
     }
 
     TrafficController.prototype = {
-        setTrafficIssues: function(issues) {
-            if ( !_.isEqual(this.issues, issues) ) {
+        setTrafficIssues: function(issues, force) {
+            if ( !_.isEqual(this.issues, issues) || force) {
                 this.issues = issues;
                 this.redraw();
             }

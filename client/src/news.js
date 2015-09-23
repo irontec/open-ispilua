@@ -9,8 +9,8 @@ var openIspiluaNews = (function() {
     }
 
     NewsController.prototype = {
-        setNews: function(newsArr) {
-            if ( !_.isEqual(this.newsArr, newsArr) ) {
+        setNews: function(newsArr, force) {
+            if ( !_.isEqual(this.newsArr, newsArr) || force ) {
                 this.newsArr = newsArr;
                 this.redraw();
             }
@@ -42,11 +42,13 @@ var openIspiluaNews = (function() {
              $(document).webicons();
         },
         generateNewsHtml: function(news) {
+            console.log(news);
             var htmlItem = '<li class="traffic-issues-item">' +
                                 '<p class="traffic-issues-item-title">' +
                                     news.title +
                                 '</p>' +
                                 '<p class="traffic-issues-item-cause">' +
+                                    news.date + ' ' +
                                     moment(new Date(news.date)).locale('es').fromNow() +
                                 '</p>' +
                                 '<p class="traffic-issues-item-level">' +

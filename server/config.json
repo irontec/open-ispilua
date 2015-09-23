@@ -32,20 +32,20 @@
                         "position": "left",
                         "displayTime": "8",
                         "displayOffset": "0",
-                        "hideTime": "10"
+                        "hideTime": "12"
                     },
                     {
                         "name": "openIspiluaNews",
                         "position": "left",
                         "displayTime": "8",
                         "displayOffset": "10",
-                        "hideTime": "10"
+                        "hideTime": "12"
                     }
                 ]
             },
             {
                 "colSize": "1_of_3",
-                "moduleNames": []
+                "modules": []
             },
             {
                 "colSize": "1_of_3",
@@ -59,7 +59,7 @@
                         "position": "right",
                         "displayTime": "8",
                         "displayOffset": "10",
-                        "hideTime": "10"
+                        "hideTime": "12"
                     }
                 ]
             }
