@@ -43,10 +43,11 @@ var openIspiluaLayout = (function() {
 
                     sectionContent += colContent;
                 });
-                sectionContent += '</div';
+                sectionContent += '</div>';
 
                 layoutDOMContent += sectionContent;
             });
+            console.log('layoutContent', layoutDOMContent);
 
             layoutDOM.html(layoutDOMContent);
 
