@@ -27,8 +27,8 @@ var newsController = {
 
             filteredNews.push(newsModel);
         });
-
-        return filteredNews;
+        var data = { news: filteredNews };
+        return data;
     }
 };
 

@@ -30,22 +30,22 @@
                     {
                         "name": "openIspiluaClock",
                         "position": "left",
-                        "displayOffset": "0",
-                        "hideTime": "0"
+                        "displayOffset": 0,
+                        "hideTime": 0
                     },
                     {
                         "name": "openIspiluaTraffic",
                         "position": "left",
-                        "displayTime": "8",
-                        "displayOffset": "0",
-                        "hideTime": "12"
+                        "displayTime": 8,
+                        "displayOffset": 0,
+                        "hideTime": 12
                     },
                     {
                         "name": "openIspiluaNews",
                         "position": "left",
-                        "displayTime": "8",
-                        "displayOffset": "10",
-                        "hideTime": "12"
+                        "displayTime": 8,
+                        "displayOffset": 10,
+                        "hideTime": 12
                     }
                 ]
             },
@@ -63,9 +63,9 @@
                     {
                         "name": "openIspiluaSeaWeather",
                         "position": "right",
-                        "displayTime": "8",
-                        "displayOffset": "10",
-                        "hideTime": "12"
+                        "displayTime": 8,
+                        "displayOffset": 10,
+                        "hideTime": 12
                     }
                 ]
             }

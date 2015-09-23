@@ -1,82 +1,17 @@
+/* ============================================ FONT ========================================== */
 @font-face {
     font-family: Noto;
     src: url(fonts/NotoSans-Regular.ttf);
 }
 
+/* ============================================ BODY ========================================== */
 body {
     background: black;
     color: white;
     font-family: Noto;
 }
 
-.right-layout {
-    text-align: right;
-}
-
-.left-layout {
-    text-align: left;
-}
-
-
-.openIspiluaClock-layout,
-.openIspiluaWeather-layout,
-.openIspiluaSeaWeather-layout,
-.openIspiluaTraffic-layout,
-.openIspiluaNews-layout  {
-    padding: 20px;
-}
-
-#traffic-issues-title, #news-title, .sea-weather-title {
-    font-size: 2em;
-    display: inline-block;
-}
-
-#sea-weather-temperature {
-    font-size: 2em;
-}
-
-.traffic-issues-icon, #news-icon, #sea-weather-icon {
-    width: 35px;
-    vertical-align: middle;
-}
-#news-icon, #sea-weather-icon{
-    vertical-align: bottom;
-}
-
-#traffic-issues-list, #news-list {
-    list-style: none;
-    padding: 0;
-    font-size: 1em;
-}
-
-.traffic-issues-item-title {
-    font-size: 1.5em;
-}
-
-
-
-#weather-icon, #weather-city-name, #weather-description  {
-    display: block;
-}
-
-#weather-city-name, #clock-content {
-    font-size: 3em;
-}
-
-#weather-icon {
-    width: 200px;
-}
-
-.right-layout #weather-icon {
-    margin: 0 0 0 auto;
-}
-
-#weather-description {
-    font-size: 1.5em;
-}
-
-
-
+/* ============================================ GRID =========================================== */
 /*  SECTIONS  */
 .section {
     clear: both;
@@ -107,3 +42,61 @@ body {
     .col {  margin: 1% 0 1% 0%; }
     .span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
 }
+
+/* ================================= MODULES LAYOUT ========================================== */
+.right-layout {
+    text-align: right;
+}
+
+.left-layout {
+    text-align: left;
+}
+
+.openIspiluaClock-layout,
+.openIspiluaWeather-layout,
+.openIspiluaSeaWeather-layout,
+.openIspiluaTraffic-layout,
+.openIspiluaNews-layout  {
+    padding: 20px;
+}
+
+/* ==================================== ELEMENTS =============================================== */
+/* Subtitle */
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+    display: inline-block;
+}
+
+/* Full size icons */
+.i1 {
+    width: 200px;
+}
+
+/* Inline icons */
+.i2 {
+    width: 35px;
+    vertical-align: middle;
+}
+
+/* Paragraph 1 */
+.p1 {
+    font-size: 1.2em;
+}
+/* Paragraph 2 */
+.p2 {
+    font-size: 1em;
+}
+/* Paragraph 3 */
+.p3 {
+    font-size: 0.8em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+
+

@@ -21,34 +21,9 @@ $(function() {
             console.log('Connected');
         },
         onNews: function(data) {
-            console.log('Data received');
+            console.log('Data received', data);
 
-            openIspiluaLayout.setLayout(data.layout);
-
-            openIspiluaWeather.setWeather(
-                data.weather,
-                openIspiluaLayout.toRedraw
-            );
-
-            openIspiluaSeaWeather.setWeather(
-                data.seaWeather,
-                openIspiluaLayout.toRedraw
-            );
-
-            openIspiluaTraffic.setTrafficIssues(
-                data.traffic.issues,
-                openIspiluaLayout.toRedraw
-            );
-
-            openIspiluaNews.setNews(
-                data.news,
-                openIspiluaLayout.toRedraw
-            );
-
-            if (openIspiluaLayout.toRedraw) {
-                openIspiluaClock.setClock();
-                openIspiluaLayout.toRedraw = false;
-            }
+            openIspiluaDrawer.draw(data);
         }
     };
 

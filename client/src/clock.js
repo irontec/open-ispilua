@@ -9,9 +9,9 @@ var openIspiluaClock = (function() {
     }
 
     ClockController.prototype = {
-        setClock: function() {
+        start: function() {
             var clockDOM = $('#openIspiluaClock');
-            clockDOM.html('<div id="clock-content"></div>');
+            clockDOM.html('<h1 id="clock-content"></h1>');
             this.startTime();
         },
         startTime: function() {

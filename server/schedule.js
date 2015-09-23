@@ -28,18 +28,27 @@ function getDataFromAPIS() {
 
     ).then(function(data) {
         sendDataToClients(data);
+        isWorking = false;
+    })
+    .catch(function(err) {
+        console.log('ERROR!');
+        console.log(err);
+        isWorking = false;
     });
 }
 
 function createReturnData(weather, traffic, news, seaweather) {
     return {
-        weather: weather,
-        seaWeather: seaweather,
-        traffic: {
-            issues: traffic
-        },
-        news: news,
-        layout: application.locals.config.layout
+        layout: application.locals.config.layout,
+        templates: application.locals.config.templates,
+        datasets: {
+            weather: weather,
+            seaWeather: seaweather,
+            traffic: {
+                issues: traffic
+            },
+            news: news,
+        }
     };
 }
 
@@ -47,7 +56,6 @@ function sendDataToClients(data) {
     _.each(application.locals.clients, function(client) {
         client.emit('news', data);
     });
-    isWorking = false;
 }
 
 module.exports = function(app) {

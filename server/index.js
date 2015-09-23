@@ -14,6 +14,7 @@ promisesManager.promisifyAll(app);
 
 
 var config = require('./config');
+config.templates = require('./config/templates');
 
 var apiManager = new APIManager(config.opendata.url);
 

@@ -1,5 +1,23 @@
 'use strict';
 
+var weatherIconsMap = {
+    '01': 'H',
+    '02': 'H',
+    '03': 'H',
+    '04': 'N',
+    '05': 'N',
+    '06': 'Y',
+    '07': 'J',
+    '08': 'M',
+    '09': 'M',
+    '10': 'Q',
+    '11': 'Q',
+    '12': 'R',
+    '13': 'R',
+    '14': 'P',
+    '15': 'Z'
+};
+
 function Weather(resultForecast) {
 
     this.city = {
@@ -18,9 +36,11 @@ function Weather(resultForecast) {
         'mid': ( parseInt(resultForecast.tempMax[0]) + parseInt(resultForecast.tempMin[0]) )/2
     };
 
-    this.icon = (resultForecast.symbol[0].symbolImage[0]).replace(
+    var iconMapIdentifier = (resultForecast.symbol[0].symbolImage[0]).replace(
         '/contenidos/recurso_tecnico/tdtrtc/es_rtc/images/',''
     ).replace('.gif', '');
+
+    this.icon = weatherIconsMap[iconMapIdentifier];
 }
 
 module.exports = Weather;
