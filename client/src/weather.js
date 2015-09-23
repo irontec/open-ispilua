@@ -38,7 +38,8 @@ var openIspiluaWeather = (function() {
 
             var weatherHeader = '<div class="weather-header-layout">' +
                                     '<div id="weather-city-name">' +
-                                        this.weather.temp.mid + 'º en ' + this.weather.city.name +
+                                        this.weather.temp.min + '-' + this.weather.temp.max +
+                                        'ºC en ' + this.weather.city.name +
                                     '</div>' +
                                     '<div id="weather-icon" ' +
                                         'data-webicon="meteocons:' +
