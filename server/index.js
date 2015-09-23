@@ -14,7 +14,6 @@ promisesManager.promisifyAll(app);
 
 
 var config = require('./config');
-config.templates = require('./config/templates');
 
 var apiManager = new APIManager(config.opendata.url);
 
@@ -56,7 +55,7 @@ function startServer() {
     });
 
 
-    server.listenAsync(config.api.port)
+    server.listenAsync(config.service.port)
     .then(function() {
         console.log('SUCCESS', config);
     })

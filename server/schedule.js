@@ -59,7 +59,7 @@ function sendDataToClients(data) {
 }
 
 module.exports = function(app) {
-    var text = app.locals.config.api.refreshInterval;
+    var text = app.locals.config.service.refreshInterval;
     application = app;
 
     weather = weatherModule(app);

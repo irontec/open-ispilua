@@ -42,7 +42,7 @@ var openIspiluaDrawer = (function() {
         drawLayout: function() {
             var layoutContent = '';
 
-            _.each(this.layout, function(section, index) {
+            _.each(this.layout.sections, function(section, index) {
                 console.log('Rendering Section ' + index + '...');
                 layoutContent += this.renderSection(section);
             }, this);
@@ -55,8 +55,8 @@ var openIspiluaDrawer = (function() {
                 this.drawModule(module);
             }, this);
 
-            _.each(this.layout, function(section) {
-                _.each(section, function(column) {
+            _.each(this.layout.sections, function(section) {
+                _.each(section.columns, function(column) {
                     _.each(column.modules, function(module) {
                         this.startModuleInterval(module);
                     }, this);
@@ -127,7 +127,7 @@ var openIspiluaDrawer = (function() {
                     content: ''
                 };
 
-            _.each(section, function(column, index) {
+            _.each(section.columns, function(column, index) {
                 console.log('Rendering Column ' + index + '...');
                 sectionData.content += this.renderColumn(column);
             }, this);

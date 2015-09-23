@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
     'common': {
         'section': '<div class="section group">{{:content}}</div>',
