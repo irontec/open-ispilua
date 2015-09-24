@@ -19,7 +19,7 @@ var weatherIconsMap = {
 };
 
 function Weather(resultForecast) {
-
+    this.dataset = 'weather';
     this.city = {
         'code': resultForecast.$.cityCode,
         'name': resultForecast.$.cityName,

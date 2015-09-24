@@ -27,7 +27,7 @@ var newsController = {
 
             filteredNews.push(newsModel);
         });
-        var returnData = { news: filteredNews };
+        var returnData = { dataset: 'news', news: filteredNews };
         return returnData;
     }
 };

@@ -8,7 +8,7 @@ var Weather = require('./model');
 
 var weatherController = {
 
-    getWeatherByCity: function(cityName) {
+    getWeatherByCity: function() {
         var self = this;
 
         return this.getData()
@@ -18,7 +18,7 @@ var weatherController = {
         .then(function(todayForecast) {
 
             var weatherConfig = application.locals.config.opendata.weather;
-            var city = cityName || weatherConfig.defaultCityName;
+            var city = application.locals.config.geo.city || weatherConfig.defaultCityName;
 
             var cityForecast = self._getCityFromForecast(todayForecast, city);
 
@@ -26,19 +26,11 @@ var weatherController = {
         });
     },
 
-
-
-
-
-
-
     getData: function() {
         var api = application.locals.api;
 
         return api.getData('weather');
     },
-
-
 
     _getForecastsFromData: function(data) {
         return data.weatherForecast.forecasts[0].forecast;

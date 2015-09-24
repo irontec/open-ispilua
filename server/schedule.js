@@ -4,30 +4,27 @@ var later = require('later');
 var _ = require('underscore');
 var using = require('bluebird').using;
 
-var weatherModule = require('./weather'),
-    seaWeatherModule = require('./seaweather'),
-    trafficModule = require('./traffic'),
-    newsModule = require('./news'),
-    eventsModule = require('./events');
+var getters = [];
 
 var application;
-var weather, seaweather, traffic, news, events;
 
 
 var isWorking = false;
 
 function getDataFromAPIS() {
     //events.getEvents();
+    console.log('getting data');
+
+    var usingGetters = [];
+    _.each(getters, function(getter) {
+        usingGetters.push(getter());
+    });
+
     using(
-      weather.getWeatherByCity(application.locals.config.geo.city),
-      traffic.getTrafficByGeo(),
-      news.getNews(),
-      seaweather.getWeather(),
-
+      usingGetters,
       createReturnData
-
     ).then(function(data) {
-        sendDataToClients(data);
+        application.locals.io.sockets.emit('news', data);
         isWorking = false;
     })
     .catch(function(err) {
@@ -37,36 +34,29 @@ function getDataFromAPIS() {
     });
 }
 
-function createReturnData(weather, traffic, news, seaweather) {
-    return {
+function createReturnData(dataArr) {
+    var result = {
         layout: application.locals.config.layout,
         templates: application.locals.config.templates,
-        datasets: {
-            weather: weather,
-            seaWeather: seaweather,
-            traffic: {
-                issues: traffic
-            },
-            news: news,
-        }
+        datasets: {}
     };
-}
-
-function sendDataToClients(data) {
-    _.each(application.locals.clients, function(client) {
-        client.emit('news', data);
+    _.each(dataArr, function(data) {
+        result.datasets[data.dataset] = data;
     });
+
+    return result;
 }
 
 module.exports = function(app) {
     var text = app.locals.config.service.refreshInterval;
     application = app;
 
-    weather = weatherModule(app);
-    traffic = trafficModule(app);
-    news = newsModule(app);
-    seaweather = seaWeatherModule(app);
-    events = eventsModule(app);
+    _.each(app.locals.config.datasets, function(module) {
+        if (module.enabled) {
+            var mod = require('./' + module.moduleName)(app);
+            getters.push(mod[module.getData].bind(mod));
+        }
+    });
 
     var schedule = later.parse.text(text);
 

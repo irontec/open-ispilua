@@ -31,12 +31,13 @@ var openIspiluaDrawer = (function() {
                     mustReDraw
                 ) {
                 this.datasets = data.datasets;
+                _.each(this.timeouts, function(timeout) {
+                    clearTimeout(timeout);
+                });
+                this.timeouts = [];
                 this.drawModules(this.templates.modules);
                 $(document).webicons();
             }
-
-            this.templates = data.templates;
-            this.datasets = data.datasets;
 
         },
         drawLayout: function() {
@@ -66,18 +67,22 @@ var openIspiluaDrawer = (function() {
         drawModule: function(module) {
             if (!module.custom) {
 
-                var elements = $('.' + module.name + '-layout'),
+                if (this.datasets[module.dataset]) {
+
+                    var elements = $('.' + module.name + '-layout'),
                     headerElements = elements.children('.module-header'),
                     contentElements = elements.children('.module-content');
 
-                var headerTmpl = $.templates(module.template.header),
-                    contentTmpl = $.templates(module.template.content);
+                    var headerTmpl = $.templates(module.template.header),
+                        contentTmpl = $.templates(module.template.content);
 
-                var headerHtml = headerTmpl(this.datasets[module.dataset]),
-                    contentHtml = contentTmpl(this.datasets[module.dataset]);
+                    var headerHtml = headerTmpl(this.datasets[module.dataset]),
+                        contentHtml = contentTmpl(this.datasets[module.dataset]);
 
-                headerElements.html(headerHtml);
-                contentElements.html(contentHtml);
+                    headerElements.html(headerHtml);
+                    contentElements.html(contentHtml);
+                }
+
             } else {
                 window[module.name].start();
             }

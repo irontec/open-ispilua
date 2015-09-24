@@ -43,8 +43,8 @@ function startServer() {
     app.locals.api = apiManager;
     app.locals.config = config;
     app.locals.clients = [];
+    app.locals.io = io;
 
-    require('./schedule')(app);
 
     // Serve Client app
     app.use('/static', express.static('../client'));
@@ -57,7 +57,9 @@ function startServer() {
 
     server.listenAsync(config.service.port)
     .then(function() {
-        console.log('SUCCESS', config);
+        console.log('Server started at ', config.service.port);
+
+        require('./schedule')(app);
     })
     .catch(function(err) {
         console.log('ERROR');

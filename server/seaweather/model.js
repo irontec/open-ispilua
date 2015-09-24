@@ -1,6 +1,7 @@
 'use strict';
 
 function SeaWeather(resultForecast) {
+    this.dataset = 'seaweather';
     this.synopticalDescription = resultForecast.synopticalDescription[0];
     this.descriptions = {
         'es': resultForecast.forecastDescription[0].es[0],

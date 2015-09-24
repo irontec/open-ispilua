@@ -23,10 +23,15 @@ var eventsController = {
         .then(this._generateResultFromJSONArray);
     },
     _generateResultFromJSONArray: function(jsonData) {
-        var result = [];
+        var result = {
+            dataset: 'events',
+            events: []
+        };
+
         _.each(jsonData.eventos, function(evento) {
-            result.push(new EventsModel(evento));
+            result.events.push(new EventsModel(evento));
         });
+
         return result;
     },
     _decodeJSONData: function(data) {

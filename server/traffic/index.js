@@ -36,8 +36,10 @@ var trafficController = {
                 }
 
         });
-
-        return filteredIssues;
+        return {
+            dataset: 'traffic',
+            issues: filteredIssues
+        };
 
     },
 
