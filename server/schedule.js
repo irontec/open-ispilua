@@ -47,30 +47,32 @@ function createReturnData(dataArr) {
     return result;
 }
 
-module.exports = function(app) {
-    var text = app.locals.config.service.refreshInterval;
-    application = app;
+module.exports = {
+  start: function(app) {
+      var text = app.locals.config.service.refreshInterval;
+      application = app;
 
-    _.each(app.locals.config.datasets, function(module) {
-        if (module.enabled) {
-            var mod = require('./' + module.moduleName)(app);
-            getters.push(mod[module.getData].bind(mod));
-        }
-    });
+      _.each(app.locals.config.datasets, function(module) {
+          if (module.enabled) {
+              var mod = require('./' + module.moduleName)(app);
+              getters.push(mod[module.getData].bind(mod));
+          }
+      });
 
-    var schedule = later.parse.text(text);
+      var schedule = later.parse.text(text);
 
-    later.setInterval(function() {
-        console.log('Running sync loop');
-        if (isWorking) {
-            return;
-        }
-        isWorking = true;
-        getDataFromAPIS();
+      later.setInterval(function() {
+          console.log('Running sync loop');
+          if (isWorking) {
+              return;
+          }
+          isWorking = true;
+          getDataFromAPIS();
 
-    }, schedule);
+      }, schedule);
 
-    getDataFromAPIS();
+      getDataFromAPIS();
 
 
+  }
 };
