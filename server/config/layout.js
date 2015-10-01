@@ -1,5 +1,18 @@
 'use strict';
 
+/*
+'displayTime': 8,
+'displayOffset': 0,
+'hideTime': 12
+{
+    'name': 'openIspiluaSeaWeather',
+    'position': 'right',
+    'displayTime': 8,
+    'displayOffset': 10,
+    'hideTime': 12
+}
+*/
+
 module.exports = {
     'sections': [
         {
@@ -12,26 +25,17 @@ module.exports = {
                             'position': 'left',
                             'displayOffset': 0,
                             'hideTime': 0
-                        },
-                        {
-                            'name': 'openIspiluaTraffic',
-                            'position': 'left',
-                            'displayTime': 8,
-                            'displayOffset': 0,
-                            'hideTime': 12
-                        },
-                        {
-                            'name': 'openIspiluaNews',
-                            'position': 'left',
-                            'displayTime': 8,
-                            'displayOffset': 10,
-                            'hideTime': 12
                         }
                     ]
                 },
                 {
                     'colSize': '1_of_3',
-                    'modules': []
+                    'modules': [
+                      {
+                          'name': 'openIspiluaNews',
+                          'position': 'center'
+                      }
+                    ]
                 },
                 {
                     'colSize': '1_of_3',
@@ -41,11 +45,8 @@ module.exports = {
                             'position': 'right'
                         },
                         {
-                            'name': 'openIspiluaSeaWeather',
-                            'position': 'right',
-                            'displayTime': 8,
-                            'displayOffset': 10,
-                            'hideTime': 12
+                            'name': 'openIspiluaTraffic',
+                            'position': 'right'
                         }
                     ]
                 }

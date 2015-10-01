@@ -4,7 +4,7 @@ module.exports = {
     'common': {
         'section': '<div class="section group">{{:content}}</div>',
         'column': '<div class="col span_{{:colSize}}">{{:content}}</div>',
-        'module': '<div class="{{:name}}-layout {{:position}}-layout " ' +
+        'module': '<div class="module-layout {{:name}}-layout {{:position}}-layout " ' +
                         'id="{{:name}}" style="display: none">' +
                         '<div class="module-header"></div>' +
                         '<div class="module-content"></div>' +
@@ -40,23 +40,31 @@ module.exports = {
             }
         },
         {
-            'name': 'openIspiluaNews',
-            'dataset': 'news',
-            'template': {
-                'header': '<h1>' +
-                            '<webicon icon="material:subject" class="i2"/>' +
-                            ' Noticias de última hora' +
-                          '</h1>',
-                'content': '<ul>' +
-                                '{{for news}}' +
-                                    '<li>' +
-                                        '<h2>{{:title}}</h2>' +
-                                        '<p class="p3">{{:date}}</p>' +
-                                        '<p class="p2">{{:description}}</p>' +
-                                    '</li>' +
-                                '{{/for}}' +
-                            '</ul>'
+          'name': 'openIspiluaNews',
+          'options': {
+            'type': 'slider',
+            'config': {
+              'adaptiveHeight': false,
+              'captions': false,
+              'pager': false,
+              'controls': false,
+              'transition': 'horizontal', // fade, horizontal, kenburns, false
+              'speed': 1200,
+              'pause': 3000
             }
+          },
+          'dataset': 'news',
+          'template': {
+            'header': '<h1>' +
+                        '<webicon icon="material:subject" class="i2"/>' +
+                        ' Noticias de última hora' +
+                      '</h1>',
+            'content': '<ul id="openIspiluaNewsSlider">' +
+                          '{{for news}}' +
+                            '<li style="height:200px"><h2>{{:title}}</h2></li>' +
+                          '{{/for}}' +
+                      '</ul>'
+          }
         },
         {
             'name': 'openIspiluaTraffic',

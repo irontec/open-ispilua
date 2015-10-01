@@ -52,6 +52,11 @@ body {
     text-align: left;
 }
 
+.center-layout {
+    text-align: center;
+}
+
+.module-layout,
 .openIspiluaClock-layout,
 .openIspiluaWeather-layout,
 .openIspiluaSeaWeather-layout,
@@ -97,6 +102,8 @@ ul {
     padding: 0;
 }
 
-
-
-
+/* ================================ CUSTOM ELEMENTS ========================================== */
+/* Hide slider nav */
+.skippr-nav-container {
+  display: none;
+}

@@ -87,6 +87,16 @@ var openIspiluaDrawer = (function() {
                 window[module.name].start();
             }
 
+            if (module.options) {
+              switch (module.options.type) {
+                case 'slider':
+                  $('#' + module.name + 'Slider').slippry(module.options.config);
+                  break;
+                default:
+
+              }
+            }
+
         },
         startModuleInterval: function(moduleData) {
             var module = _.extend({}, moduleData);

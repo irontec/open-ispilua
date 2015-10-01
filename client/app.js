@@ -3,7 +3,7 @@ $(function() {
     'use strict';
 
     function OpenIspiluaApplication() {
-        this.socket = io.connect('http://localhost:9030');
+        this.socket = io.connect('http://10.10.0.223:9030');
 
         this.socket.on(
             'connect',

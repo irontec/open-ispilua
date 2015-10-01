@@ -17,6 +17,7 @@
     "jsrender": "~1.0.0-rc.69",
     "moment": "~2.10.6",
     "underscore": "~1.8.3",
-    "webicon": "~0.10.7"
+    "webicon": "~0.10.7",
+    "slippry": "~1.3.1"
   }
 }
