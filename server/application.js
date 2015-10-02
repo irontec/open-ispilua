@@ -35,7 +35,7 @@ Application.prototype = {
     this.app.locals.clients = [];
     this.app.locals.io = this.io;
 
-    this._getGeolocation()
+    return this._getGeolocation()
       .then(this.serve());
   },
   serve: function() {
@@ -53,15 +53,11 @@ Application.prototype = {
       .then(function() {
 
         console.log('Server started at ', this.config.service.port);
-        schedule.start(this.app);
 
-      }.bind(this))
-      .catch(function(err) {
-
-        console.log('ERROR starting server');
-        console.log(err);
-
-      });
+      }.bind(this));
+  },
+  startSchedule: function() {
+    schedule.start(this.app);
   },
   _getGeolocation: function() {
     return request.getAsync(Application.GEO_LOCATION_URL)

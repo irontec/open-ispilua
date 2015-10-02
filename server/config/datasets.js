@@ -14,7 +14,7 @@ module.exports = [
     {
         moduleName: 'traffic',
         getData: 'getTrafficByGeo',
-        enabled: true
+        enabled: false
     },
     {
         moduleName: 'news',
@@ -24,6 +24,11 @@ module.exports = [
     {
         moduleName: 'events',
         getData: 'getEvents',
-        enabled: false
+        enabled: true
+    },
+    {
+        moduleName: 'directions',
+        getData: 'getData',
+        enabled: true
     }
 ];

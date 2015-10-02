@@ -14,8 +14,9 @@ module.exports = {
         'limit': 3
     },
     'events': {
-        'url': 'http://www.kulturklik.euskadi.net/?api_call=events',
-        'language': 'es',
-        'limit': 5
+        'url': 'http://opendata.euskadi.eus/contenidos/ds_eventos/eventos_turisticos/opendata/agenda.json',
+        //'language': 'es',
+        'dayLimit': 7,
+        'timePerRequest': 30
     }
 };

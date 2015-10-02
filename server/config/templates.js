@@ -16,6 +16,42 @@ module.exports = {
             'custom': true
         },
         {
+            'name': 'openIspiluaDirections',
+            'dataset': 'directions',
+            'options': {
+              'type': 'slider',
+              'config': {
+                'adaptiveHeight': false,
+                'captions': false,
+                'pager': false,
+                'controls': false,
+                'transition': 'vertical', // fade, horizontal, kenburns, false
+                'speed': 1200,
+                'pause': 3000
+              }
+            },
+            'template': {
+                'header': '<h1>' +
+                            '<webicon icon="material:directions-transit" class="i2"/>' +
+                            ' Horarios de transporte ({{:directions.length}})' +
+                          '</h1>',
+                'content': '<ul id="openIspiluaDirectionsSlider">' +
+                                '{{for directions}}' +
+                                    '<li>' +
+                                        '{{if line.agencyName==="Metro Bilbao"}}' +
+                                        '<h2>{{:line.agencyName}}: {{:title}}</h2>' +
+                                        '{{else}}' +
+                                        '<h2>{{:line.agencyName}}: {{:line.name}}</h2>' +
+                                        '{{/if}}' +
+                                        '<p class="p1">Salida: {{:departure}}</p>' +
+                                        '<p class="p1">Llegada: {{:arrival}}</p>' +
+                                    '</li>' +
+                                '{{/for}}' +
+                            '</ul>'
+            }
+
+        },
+        {
             'name': 'openIspiluaWeather',
             'dataset': 'weather',
             'template': {
@@ -24,18 +60,6 @@ module.exports = {
                             ' en {{:city.name}}' +
                           '</h1>' +
                           '<webicon icon="meteocons:{{:icon}}" class="i1"/>',
-                'content': '<p class="p1">{{:descriptions.es}}</p>'
-            }
-        },
-        {
-            'name': 'openIspiluaSeaWeather',
-            'dataset': 'seaWeather',
-            'template': {
-                'header': '<h1>' +
-                            '<webicon icon="meteocons:F" class="i2"/>' +
-                            ' Prediccción Marítima' +
-                          '</h1>' +
-                          '<h2>Agua: {{:waterTemperature}}</h2>',
                 'content': '<p class="p1">{{:descriptions.es}}</p>'
             }
         },
@@ -67,6 +91,37 @@ module.exports = {
           }
         },
         {
+            'name': 'openIspiluaEvents',
+            'options': {
+              'type': 'slider',
+              'config': {
+                'adaptiveHeight': false,
+                'captions': false,
+                'pager': false,
+                'controls': false,
+                'transition': 'vertical', // fade, horizontal, kenburns, false
+                'speed': 1200,
+                'pause': 3000
+              }
+            },
+            'dataset': 'events',
+            'template': {
+              'header': '<h1>' +
+                          '<webicon icon="material:event" class="i2"/>' +
+                          ' Próximos Eventos ({{:events.length}})' +
+                        '</h1>',
+              'content': '<ul id="openIspiluaEventsSlider">' +
+                              '{{for events}}' +
+                                  '<li>' +
+                                      '<h2>{{:title}}</h2>' +
+                                      '<p class="p1">Fecha de inicio: {{:startDate}}</p>' +
+                                      '<p class="p2">Fecha de finalización: {{:endDate}}</p>' +
+                                  '</li>' +
+                              '{{/for}}' +
+                          '</ul>'
+            }
+        },
+        {
             'name': 'openIspiluaTraffic',
             'dataset': 'traffic',
             'template': {
@@ -83,6 +138,18 @@ module.exports = {
                                     '</li>' +
                                 '{{/for}}' +
                             '</ul>'
+            }
+        },
+        {
+            'name': 'openIspiluaSeaWeather',
+            'dataset': 'seaWeather',
+            'template': {
+                'header': '<h1>' +
+                            '<webicon icon="meteocons:F" class="i2"/>' +
+                            ' Prediccción Marítima' +
+                          '</h1>' +
+                          '<h2>Agua: {{:waterTemperature}}</h2>',
+                'content': '<p class="p1">{{:descriptions.es}}</p>'
             }
         }
     ]

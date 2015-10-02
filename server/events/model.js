@@ -3,8 +3,9 @@
 /* Fucking API uses snake case */
     /* jshint ignore:start */
 function EventModel(data) {
-    this.title = data['evento_titulo'];
-    this.type = data['evento_tipo'];
+    this.title = data.documentName;
+    this.endDate = data.eventEndDate;
+    this.startDate = data.eventStartDate;
 }
 module.exports = EventModel;
     /* jshint ignore:end */

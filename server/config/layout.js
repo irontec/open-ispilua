@@ -25,6 +25,12 @@ module.exports = {
                             'position': 'left',
                             'displayOffset': 0,
                             'hideTime': 0
+                        },
+                        {
+                            'name': 'openIspiluaEvents',
+                            'position': 'left',
+                            'displayOffset': 0,
+                            'hideTime': 0
                         }
                     ]
                 },
@@ -45,7 +51,7 @@ module.exports = {
                             'position': 'right'
                         },
                         {
-                            'name': 'openIspiluaTraffic',
+                            'name': 'openIspiluaDirections',
                             'position': 'right'
                         }
                     ]
