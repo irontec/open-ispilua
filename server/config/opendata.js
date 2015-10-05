@@ -15,7 +15,6 @@ module.exports = {
     },
     'events': {
         'url': 'http://opendata.euskadi.eus/contenidos/ds_eventos/eventos_turisticos/opendata/agenda.json',
-        //'language': 'es',
         'dayLimit': 7,
         'timePerRequest': 30
     }

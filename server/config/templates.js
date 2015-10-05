@@ -21,13 +21,13 @@ module.exports = {
             'options': {
               'type': 'slider',
               'config': {
-                'adaptiveHeight': false,
+                'adaptiveHeight': true,
                 'captions': false,
                 'pager': false,
                 'controls': false,
                 'transition': 'vertical', // fade, horizontal, kenburns, false
                 'speed': 1200,
-                'pause': 3000
+                'pause': 6000
               }
             },
             'template': {
@@ -37,7 +37,7 @@ module.exports = {
                           '</h1>',
                 'content': '<ul id="openIspiluaDirectionsSlider">' +
                                 '{{for directions}}' +
-                                    '<li>' +
+                                    '<li style="height:400px">' +
                                         '{{if line.agencyName==="Metro Bilbao"}}' +
                                         '<h2>{{:line.agencyName}}: {{:title}}</h2>' +
                                         '{{else}}' +
@@ -68,7 +68,7 @@ module.exports = {
           'options': {
             'type': 'slider',
             'config': {
-              'adaptiveHeight': false,
+              'adaptiveHeight': true,
               'captions': false,
               'pager': false,
               'controls': false,
@@ -95,13 +95,13 @@ module.exports = {
             'options': {
               'type': 'slider',
               'config': {
-                'adaptiveHeight': false,
+                'adaptiveHeight': true,
                 'captions': false,
                 'pager': false,
                 'controls': false,
                 'transition': 'vertical', // fade, horizontal, kenburns, false
                 'speed': 1200,
-                'pause': 3000
+                'pause': 8000
               }
             },
             'dataset': 'events',
@@ -112,7 +112,7 @@ module.exports = {
                         '</h1>',
               'content': '<ul id="openIspiluaEventsSlider">' +
                               '{{for events}}' +
-                                  '<li>' +
+                                  '<li style="height:400px">' +
                                       '<h2>{{:title}}</h2>' +
                                       '<p class="p1">Fecha de inicio: {{:startDate}}</p>' +
                                       '<p class="p2">Fecha de finalización: {{:endDate}}</p>' +
