@@ -9,7 +9,7 @@
 ### Setting up
 Clone this repo
 ```bash
-git clone https://git.irontec.com/internet/open-ispilua.git open-ispilua && cd open-ispilua/server
+git clone https://github.com/irontec/open-ispilua.git open-ispilua && cd open-ispilua/server
 npm install
 ```
 [Optional] Enable Homerun support
