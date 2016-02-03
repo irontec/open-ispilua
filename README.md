@@ -1,5 +1,7 @@
 # Open Ispilua
 
+Inspired on: [Magic Mirror by Michael Teeuw](http://michaelteeuw.nl/tagged/magicmirror)
+
 ## Server
 
 ### Prerequisites
