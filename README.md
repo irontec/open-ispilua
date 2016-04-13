@@ -1,4 +1,4 @@
-# Open Ispilua
+# Open Ispilu
 
 Inspired on: [Magic Mirror by Michael Teeuw](http://michaelteeuw.nl/tagged/magicmirror)
 
